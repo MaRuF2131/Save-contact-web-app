@@ -1,13 +1,14 @@
 
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import * as Avatar from "@radix-ui/react-avatar";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
 
   const navigation = [
     {
       href: "javascript:void(0)",
-      name: "Overview",
+      name: "Add Contact",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +68,7 @@ const Sidebar = () => {
     },
     {
       href: "javascript:void(0)",
-      name: "Transactions",
+      name: "My Contact",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -160,27 +161,26 @@ const Sidebar = () => {
       <nav className="fixed top-17  z-50 rounded-md  left-0 bottom-0  w-20  border-r bg-white/10 backdrop-blur-md  shadow-xl  text-white border-1 border-blue-700/50 space-y-8">
         <div className="flex flex-col h-full z-[60]  ">
           <div className="h-20 flex items-center justify-center px-8">
-            <a href="javascript:void(0)" className="flex-none">
+            <NavLink to='/' className="flex-none">
               <img
                 src="https://floatui.com/logo-letter.png"
                 width={35}
                 className="mx-auto"
               />
-            </a>
+            </NavLink>
           </div>
           <div className="flex-1 flex flex-col h-full ">
             <ul className="px-4 text-sm font-medium flex-1">
               {navigation.map((item, idx) => (
                 <li key={idx}>
-                  <a
-                    href={item.href}
-                    className="relative flex items-center justify-center gap-x-2 text-gray-600 p-2 rounded-lg  hover:bg-gray-50 active:bg-gray-100 duration-150 group"
+                  <NavLink to={`/${item.name}`}
+                    className={({isActive})=>isActive?'bg-gray-300  border-b-3  border-blue-800 relative flex items-center justify-center gap-x-2 text-gray-600 p-2 rounded-lg  duration-150 group':'relative flex items-center justify-center gap-x-2 text-gray-600 p-2 rounded-lg  hover:bg-gray-50  duration-150 group'}
                   >
-                    <div className="text-gray-500">{item.icon}</div>
+                    <p   className="text-gray-500">{item.icon}</p>
                     <span className="absolute z-[60] left-14 p-1 px-1.5 rounded-md whitespace-nowrap text-xs text-white bg-gray-800 hidden group-hover:inline-block group-focus:hidden duration-150">
                       {item.name}
                     </span>
-                  </a>
+                  </NavLink>
                 </li>
               ))}
             </ul>

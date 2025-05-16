@@ -1,6 +1,6 @@
 
 import './App.css'
-import Mainlayout from './components/mainlayout/mainlayout';
+import Root from "./root/root"
 
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
   };
   return (
     <div className='bg-gradient-to-br min-h-screen  from-black via-blue-950 to-black text-white'>
-          <Mainlayout></Mainlayout>
+          <Root></Root>
     </div>
   )
 }
