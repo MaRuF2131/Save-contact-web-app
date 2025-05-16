@@ -1,3 +1,6 @@
+import { useState } from "react"
+import Calloption from "../calloption/calloption"
+
 const members = [
     {
         avatar: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
@@ -18,37 +21,47 @@ const members = [
     },
 ]
 
-export default  () => (
+const Contactlist = () =>{
+    const[ismange,setmange]=useState(false);
+    const[info ,setinfo]=useState();
+    return (
     <div className="max-w-2xl mx-auto px-4">
         <div className="mt-20">
         <div className="items-start justify-between sm:flex">
             <div>
-                <h4 className="text-gray-800 text-xl font-semibold">Team members</h4>
-                <p className="mt-2 text-gray-600 text-base sm:text-sm">Give your team members access to manage the system.</p>
+                <h4 className="text-gray-400 text-xl font-semibold">Team members</h4>
+                <p className="mt-2 text-gray-400 text-base sm:text-sm">Give your team members access to manage the system.</p>
             </div>
             <a href="javascript:void(0)" className="inline-flex items-center justify-center gap-1 py-2 px-3 mt-2 font-medium text-sm text-center text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 rounded-lg sm:mt-0">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
                 </svg>
-                New member
+                New Contact
             </a>
         </div>
         <ul className="mt-12 divide-y">
             {
                 members.map((item, idx) => (
+                    <>
                     <li key={idx} className="py-5 flex items-start justify-between">
                         <div className="flex gap-3">
                             <img src={item.avatar} className="flex-none w-12 h-12 rounded-full" />
                             <div>
-                                <span className="block text-sm text-gray-700 font-semibold">{item.name}</span>
-                                <span className="block text-sm text-gray-600">{item.email}</span>
+                                <span className="block text-sm text-gray-400 font-semibold">{item.name}</span>
+                                <span className="block text-sm text-gray-400">{item.email}</span>
                             </div>
                         </div>
-                        <a href="javascript:void(0)" className="text-gray-700 text-sm border rounded-lg px-3 py-2 duration-150 bg-white hover:bg-gray-100">Manage</a>
-                    </li>
+                        <button  onClick={()=>{setinfo(item);setmange(true)}} className="text-white cursor-pointer hover:text-gray-700 text-sm focus:bg-white focus:text-gray-700  rounded-lg px-3 py-2 duration-150 border-1 border-blue-700  bg-blue-500/30 hover:bg-gray-100">Manage</button>
+                    </li>  
+                     
+                   </>
+                    
                 ))
             }
         </ul>
+           <Calloption ismange={ismange} info={info}></Calloption>
         </div>
     </div>
 )
+}
+export default Contactlist;

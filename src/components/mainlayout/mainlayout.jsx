@@ -9,8 +9,8 @@ function mainlayout() {
     <div className=''>
         <Navbar></Navbar>
           <div className='pt-20 pl-25 pr-5'>
-            <Createcontact></Createcontact> 
-              {/*  <Contactlist></Contactlist> */}
+           {/*  <Createcontact></Createcontact>  */}
+               <Contactlist></Contactlist>
            </div>
         <Sidebar></Sidebar>
     </div>

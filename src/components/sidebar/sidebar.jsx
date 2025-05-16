@@ -256,7 +256,7 @@ const Sidebar = () => {
                         </select>
                       </div>
                       <DropdownMenu.Item asChild className="outline-none">
-                        <button className="block w-full p-2 text-left rounded-md hover:text-blue-500 hover:bg-gray-50 active:bg-gray-100 duration-150">
+                        <button className="block w-full cursor-pointer p-2 text-left rounded-md hover:text-blue-500 hover:bg-gray-50 active:bg-gray-100 duration-150">
                           Logout
                         </button>
                       </DropdownMenu.Item>
