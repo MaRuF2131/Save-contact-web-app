@@ -28,7 +28,7 @@ return (
     > 
     <div className=''>
         <Navbar></Navbar>
-          <div className='pt-20 pl-25 pr-5 pb-5'>
+          <div className='pt-18 pl-22 pr-2 pb-3 flex flex-col items-center justify-start'>
                {loading && <Loader/> }
                {!loading && <Outlet></Outlet>}
            </div>

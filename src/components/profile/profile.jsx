@@ -92,7 +92,7 @@ function profile() {
                         <div className="absolute top-2 right-2 text-xl">
                             <FaCog className="cursor-pointer"/>
                         </div>
-                        <div className="w-full pt-4 flex flex-wrap md:flex-row flex-col items-start justify-start gap-6">
+                        <div className="w-full pt-4 px-6 flex flex-wrap md:flex-row flex-col items-start justify-start gap-6">
                              <div className="flex-1 w-full md:w-auto space-y-4">
                                   <div>
                                       <label htmlFor="oldpass" className="block text-md mb-2 font-semibold text-gray-400 text-lg">Old password</label>
@@ -107,7 +107,7 @@ function profile() {
                                        </div>
                              </div> 
 
-                              <div className="flex-1 w-full md:w-auto space-y-4">
+                              <div className="flex-1 px-4 w-full md:w-auto space-y-4">
                                  <div>
                                      <label htmlFor="newmail" className="block text-md mb-2 font-semibold text-gray-400 text-lg">New mail</label>
                                       <input className="text-gray-300 w-full  p-3 pr-10 opacity-50 rounded-xl bg-white/5 border border-white/20 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500" type="mail" name="newmail" id="newmail" placeholder="new mail" />

@@ -7,11 +7,17 @@
     <title>Vite + React</title>
     <style>
 
-
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
     </style>
   </head>
-  <body>
-    <div id="root"></div>
+  <body class="hide-scrollbar">
+    <div id="root" ></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
