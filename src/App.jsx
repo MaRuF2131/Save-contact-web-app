@@ -1,6 +1,7 @@
 
 import './App.css'
 import Root from "./root/root"
+import { AnimatePresence } from 'framer-motion';
 
 
 function App() {

@@ -1,9 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { lazy,Suspense } from "react";
 import {delayImport} from '../mytools/delayimport/delayimport'
-const Home=lazy(()=>delayImport (()=> import( "../components/mainlayout/mainlayout"),1000))
-const Contactlist=lazy(()=>delayImport(()=> import("../components/contactlist/contactlist"),1000))
-const CreateContact=lazy(()=>delayImport(()=> import("../components/create-contact-form/createContact"),1000))
+const Home=lazy(()=> import( "../components/mainlayout/mainlayout"))
+const Contactlist=lazy(()=>import("../components/contactlist/contactlist"))
+const Myprofile=lazy(()=> import("../components/profile/profile"))
+const CreateContact=lazy(()=>import('../components/create-contact-form/createContact'))
 const Loader =lazy(()=> import('../mytools/loader/loader'))
 const roots=createBrowserRouter([
     {
@@ -24,10 +25,28 @@ const roots=createBrowserRouter([
             },
                 
             {
-             path:'/Add Contact',
+              path:'/Add Contact',
               element:(
                 <Suspense fallback={<Loader/>}>
                        <CreateContact/>
+                </Suspense>
+              )
+            },
+
+            {
+              path:'/myprofile',
+              element:(
+                <Suspense fallback={<Loader/>}>
+                      <Myprofile/>
+                </Suspense>
+              )
+            },
+
+            {
+              index:true,
+              element:(
+                <Suspense fallback={<Loader/>}>
+                         <Myprofile/>
                 </Suspense>
               )
             }

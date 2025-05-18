@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { FaWhatsapp, FaFacebook, FaLinkedin, FaInstagram, FaGlobe } from 'react-icons/fa';
+import { motion } from 'framer-motion'
 
 function CreateContact() {
 
@@ -22,7 +23,13 @@ function CreateContact() {
     }
   };
 
-  return (
+return ( 
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -30 }}
+      transition={{ duration: 0.5 }}
+    >
     <div className="create-contact h-full  text-white flex flex-col items-center justify-center">
           <form className=" bg-white/10 backdrop-blur-md rounded-2xl shadow-xl p-8 w-full max-w-2xl space-y-6 text-white border border-white/20">
                 <h2 className="text-3xl font-bold text-center">📇 Add New Contact</h2>
@@ -161,6 +168,7 @@ function CreateContact() {
                 </button>
           </form>
     </div>
+    </motion.div>   
   )
 }
 

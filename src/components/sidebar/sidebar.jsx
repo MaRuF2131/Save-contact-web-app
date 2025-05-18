@@ -227,12 +227,12 @@ const Sidebar = () => {
                         vienna@gmail.com
                       </span>
                       <DropdownMenu.Item asChild className="outline-none">
-                        <a
-                          href="/dashboard"
+                        <NavLink
+                          to="/myprofile"
                           className="block w-full p-2 text-left rounded-md hover:text-blue-500 hover:bg-gray-50 active:bg-gray-100 duration-150"
                         >
-                          Dashboard
-                        </a>
+                          Profile
+                        </NavLink>
                       </DropdownMenu.Item>
                       <div className="relative rounded-md hover:text-blue-500 hover:bg-gray-50 active:bg-gray-100 duration-150">
                         <svg

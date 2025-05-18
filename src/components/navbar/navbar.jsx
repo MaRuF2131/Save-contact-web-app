@@ -6,13 +6,14 @@ import { FaEnvelope } from 'react-icons/fa';         // Font Awesome
 import { MdMessage } from 'react-icons/md';          // Material Design
 import { BsChatDots } from 'react-icons/bs';         // Bootstrap Icons
 import { HiOutlineChat } from 'react-icons/hi';      // Heroicons
+import { NavLink } from "react-router-dom";
 
 
 
 function navbar() {
     const [image, setImage] = useState('https://images.unsplash.com/photo-1464863979621-258859e62245?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ');
   return (
-    <div className="text-center z-50 fixed top-0 left-0 right-0 mb-2 inline-flex items-center justify-between gap-x-2 bg-white/10 backdrop-blur-md rounded-2xl shadow-xl p-1 w-full  text-white border-1 border-blue-700/50">
+    <div className="text-center z-50 fixed top-0 left-0 right-0 mb-2 inline-flex items-center justify-between gap-x-2 bg-white/10 backdrop-blur-md rounded-md shadow-xl p-1 w-full  text-white border-1 border-blue-700/50">
           <div className="logo">
               <img className="w-25 h-14 object-fit" src='https://i.ibb.co/8nWq2JTs/sample-0-4.jpg' alt="logo" />
           </div>
@@ -27,6 +28,7 @@ function navbar() {
             </div>
 
           <div className="profile ">
+            <NavLink to='/myprofile'>
               {image && (
                     <img
                       src={image}
@@ -34,6 +36,7 @@ function navbar() {
                       className="w-13 h-13 cursor-pointer rounded-full object-cover border-2 border-blue-500"
                     />
                   )}
+                </NavLink>
           </div>
 
 
