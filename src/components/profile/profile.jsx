@@ -5,6 +5,8 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaGithub } from 'react-
 import { MdEmail } from 'react-icons/md';
 import { FaGlobe } from 'react-icons/fa'; // for website
 import { FaCog } from 'react-icons/fa';
+import Forgotten_pass from "./forgotten_pass";
+import Pass_change from "./pass_change";
 
 
 const user={
@@ -29,6 +31,7 @@ const user={
 
 function profile() {
   const [value,setvalue]=useState(user.fullName);
+  const[forgotten,setforgotten]=useState(false);
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -87,42 +90,27 @@ function profile() {
                  <button className="rounded-md w-full cursor-pointer px-2 py-2 text-xl bg-blue-950/60 text-gray-400 hover:text-gray-300 hover:bg-blue-950">Save changes</button>
             </div>
 
-            <div className="w-full min-h-62 gap-4 flex flex-wrap md:flex-row flex-col">
-                   <div className="relative overflow-y-auto h-72  flex-1 hide-scrollbar p-2 space-y-2 min-h-62 border-1 border-blue-500 rounded-md">
+            <div className="w-full min-h-82 gap-4 flex flex-wrap md:flex-row flex-col">
+                   <div className="relative overflow-y-auto h-82  flex-1 hide-scrollbar p-2  space-y-2 min-h-62 border-1 border-blue-500 rounded-md">
                         <div className="absolute top-2 right-2 text-xl">
                             <FaCog className="cursor-pointer"/>
                         </div>
-                        <div className="w-full pt-4 px-6 flex flex-wrap md:flex-row flex-col items-start justify-start gap-6">
-                             <div className="flex-1 w-full md:w-auto space-y-4">
-                                  <div>
-                                      <label htmlFor="oldpass" className="block text-md mb-2 font-semibold text-gray-400 text-lg">Old password</label>
-                                      <input className="text-gray-300 w-full  p-3 pr-10 opacity-50 rounded-xl bg-white/5 border border-white/20 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500" type="password" name="oldpassword" id="oldpass" placeholder="Old password" />
-                                  </div>
-                                  <div>
-                                      <label htmlFor="newpass" className="block text-md mb-2 font-semibold text-gray-400 text-lg">New password</label>
-                                      <input className="text-gray-300 w-full  p-3 pr-10 opacity-50 rounded-xl bg-white/5 border border-white/20 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500" type="password" name="newpassword" id="newpass" placeholder="New password" />
-                                  </div>
-                                       <div className="w-full h-fit text-center">
-                                            <button className="rounded-md w-full cursor-pointer px-2 py-2 text-xl bg-blue-950/60 text-gray-400 hover:text-gray-300 hover:bg-blue-950">Save changes</button>
-                                       </div>
-                             </div> 
+                        <div className="absolute top-2 left-8 text-xl">
+                             <button onClick={()=>setforgotten(!forgotten)} type="button" className={`cursor-pointer text-sm text-blue-500 hover:bg-blue-950 ${forgotten?'bg-blue-950':"bg-transparent"} p-2 rounded-md border`}>Forget password</button>
+                        </div>
 
-                              <div className="flex-1 px-4 w-full md:w-auto space-y-4">
-                                 <div>
-                                     <label htmlFor="newmail" className="block text-md mb-2 font-semibold text-gray-400 text-lg">New mail</label>
-                                      <input className="text-gray-300 w-full  p-3 pr-10 opacity-50 rounded-xl bg-white/5 border border-white/20 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500" type="mail" name="newmail" id="newmail" placeholder="new mail" />
-                                  </div>
-                                  <div>
-                                      <label htmlFor="userid" className="block text-md mb-2 font-semibold text-gray-400 text-lg">UserID</label>
-                                      <input className="text-gray-300 w-full  p-3 pr-10 opacity-50 rounded-xl bg-white/5 border border-white/20 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500" type="mail" name="userid" id="userid" placeholder="UserID" />
-                                  </div>
-                                      <div className="w-full h-fit text-center">
-                                           <button className="rounded-md w-full cursor-pointer px-2 py-2 text-xl bg-blue-950/60 text-gray-400 hover:text-gray-300 hover:bg-blue-950">Save changes</button>
-                                      </div>
-                              </div>
+                    <div className="w-full pt-15 px-6 flex flex-wrap md:flex-row flex-col items-start justify-start gap-6"> 
+                       {
+                        forgotten?(
+                             <Forgotten_pass></Forgotten_pass>
+                        ) 
+                          :(
+                              <Pass_change></Pass_change>
+                             )
+                           }
                          </div> 
                    </div>
-                   <div className="flex-1 overflow-y-auto h-72 p-3  hide-scrollbar gap-y-2  flex flex-wrap flex-row md:flex-col items-center justify-between  md:max-w-20 border-1 border-blue-500 rounded-md">
+                   <div className="flex-1 overflow-y-auto h-82 p-3  hide-scrollbar gap-y-2  flex flex-wrap flex-row md:flex-col items-center justify-between  md:max-w-20 border-1 border-blue-500 rounded-md">
                           <a href="#"><FaFacebook className="hover:text-blue-500/50 cursor-pointer text-3xl text-blue-500"/></a>
                           <a href="#"><FaGithub className="hover:text-blue-500/50 cursor-pointer text-3xl text-blue-500"/></a>
                           <a href="#"><FaLinkedin className="hover:text-blue-500/50 cursor-pointer text-3xl text-blue-500"/></a>
